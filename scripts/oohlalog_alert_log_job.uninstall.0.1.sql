@@ -1,0 +1,10 @@
+BEGIN
+  DBMS_SCHEDULER.DROP_JOB (
+   job_name           =>  'OOHLALOG_ALERT_LOG_JOB',
+   force              =>  TRUE
+  );
+  DBMS_OUTPUT.PUT_LINE ('Dropped OOHLALOG_ALERT_LOG_JOB');
+EXCEPTION 
+	WHEN OTHERS THEN DBMS_OUTPUT.PUT_LINE ('Unable to drop OOHLALOG_ALERT_LOG_JOB'); 
+END;
+/
