@@ -1,6 +1,6 @@
 BEGIN
   DBMS_SCHEDULER.CREATE_JOB (
-   job_name           =>  'OOHLALOG_ALERT_LOG_JOB',
+   job_name           =>  'OOHLALOG.OOHLALOG_ALERT_LOG_JOB',
    job_type           =>  'STORED_PROCEDURE',
    job_action         =>  'OOHLALOG.OOHLALOG_API.LOG_ALERTS',
    start_date         =>  SYSTIMESTAMP,
