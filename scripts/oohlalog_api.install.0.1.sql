@@ -123,8 +123,8 @@ BEGIN DBMS_OUTPUT.PUT_LINE ('Granted OOHLALOG_API pkg spec'); END;
 
 CREATE OR REPLACE PACKAGE BODY OOHLALOG.OOHLALOG_API
 AS
-   LOOKBACK_SECS INTEGER CONSTANT := 3;
-
+   LOOKBACK_SECS CONSTANT INTEGER := 3;
+   
    FUNCTION UNIX_TO_TIMSTAMP (P_UNIX IN NUMBER)
       RETURN DATE
    IS
@@ -330,7 +330,6 @@ AS
       DBMS_OUTPUT.PUT_LINE ('IP address = ' || ip || ' Host = ' || HOST);
 
       apiKey := GET_API_KEY ();
-      -- LETTING OLL SET THE TIMESTAMP FOR NOW UNTIL WE CAN FIX UP OLL UI SORTING, AND TZ ISSUES
       --json := '{"timestamp":'||TO_CHAR(TIMESTAMP_TO_UNIX(SYSTIMESTAMP))||',"level":"'||P_LVL||'", "message":"' || REPLACE(REPLACE(P_MESSAGE, chr(10), '\n'),'"', '\"') || '", "hostName":"'||host||'", "category":"'||P_CAT||'"}';
       json :=
             '{"level":"'
